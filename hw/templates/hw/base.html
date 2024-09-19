@@ -1,0 +1,25 @@
+<!-- hw/templates/hw/home.html -->
+
+{% load static %}
+<html>
+  <head>
+    <title>About</title>
+    <!-- <link rel="stylesheet" href="/static/styles.css" /> -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <!-- <a href="/hw">Home</a> -->
+        <a href="{% url 'home' %}">Home</a>
+        <!-- <a href="/hw/about">Home</a> -->
+        <a href="{% url 'about' %}">About</a>
+      </ul>
+    </nav>
+    {% block content %}
+    <!-- Put the specific stuff here -->
+    {% endblock %}
+    <hr />
+    This page was generated at {{current_time}}.
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'quotes/base.html' %} {% block content %}
+<h2>SHOWALL</h2>
+<div class="quotes-container">
+  {% for quote in quotesList %}
+  <p class="show-quote">{{quote}}</p>
+  {% endfor %}
+</div>
+<div class="imgs-container">
+  {% for image in imageList %}
+  <img class="show-img" src="{{image}}" />
+  {% endfor %}
+</div>
+{% endblock %}
