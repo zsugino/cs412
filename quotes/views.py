@@ -11,7 +11,10 @@ imageList = ["../static/miketyson1.jpg", "../static/miketyson2.jpg", "../static/
 # Create your views here.
 
 def home(request):
-
+  """ Displays home page with a single quote and image that is 
+      chosen randomly from the global variable lists
+  """
+  
   template_name = "quotes/quote.html"
 
   # Select Random Quote and String
@@ -28,6 +31,9 @@ def home(request):
 
 
 def about(request):
+  """ Displays about page which provides biography about
+      the famous person. 
+  """
   template_name = "quotes/about.html"
   context = {
     "idk" : "idk"
@@ -35,6 +41,8 @@ def about(request):
   return render(request, template_name, context)
 
 def show_all(request):
+  """ Displays all the images and quotes from the global variable lists
+  """
   template_name = "quotes/show_all.html"
   context = {
     "quotesList" : quotesList,
