@@ -1,0 +1,29 @@
+{% extends 'restaurant/base.html' %} {% block content %}
+<div class="confirmation-container">
+  <h2>ORDER PROCESSED</h2>
+  <p>Thank you so much for ordering!</p>
+  <h3>Pasta</h3>
+  {% if pasta %} {% for element in pasta %}
+  <p>{{element}}</p>
+  {% endfor %} {% else %}
+  <p>No Pasta Selected.</p>
+  {% endif %}
+
+  <h3>Daily Special</h3>
+  <p>{{daily_special}}</p>
+
+  <h3>Additonal Toppings</h3>
+  {% if toppings %} {% for element in toppings %}
+  <p>{{element}}</p>
+  {% endfor %} {% else %}
+  <p>No Toppings Selected.</p>
+  {% endif %}
+  <p>Total: {{total}}</p>
+  <p>Special Instructions: {{special_instruction}}</p>
+  <p>Name: {{name}}, Phone: {{phone}}, Email: {{email}}</p>
+
+  <h3>Estimated Time</h3>
+  <p>Current Time:{{currenttime}}</p>
+  <p>Estimated Time:{{readytime}}</p>
+</div>
+{% endblock %}
