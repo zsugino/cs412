@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: red;
+}
+
+.profile-img {
+  width: 200px;
+}
+
+header {
+  background-color: black;
+  padding: 1.6rem;
+  color: white;
+}
+
+footer {
+  color: white;
+  padding: 1.2rem;
+  background-color: black;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 8px solid black;
+  padding: 2.4rem;
+  margin: 1.2rem;
+  gap: 1.2rem;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  padding: 1.2rem;
+  line-height: 2.2rem;
+}
