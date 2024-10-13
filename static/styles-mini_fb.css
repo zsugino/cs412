@@ -12,9 +12,28 @@ body {
   width: 200px;
 }
 
+.single-profile-img {
+  width: 500px;
+}
+
 header {
   background-color: black;
   padding: 1.6rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.nav-link {
   color: white;
 }
 
@@ -41,4 +60,55 @@ footer {
   border: 2px solid black;
   padding: 1.2rem;
   line-height: 2.2rem;
+}
+
+.field-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-title {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+.single-profile-container {
+  padding: 1.8rem;
+}
+
+.single-profile-img-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+
+.name {
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.about {
+  text-align: center;
+}
+
+h3 {
+  margin-top: 0.8rem;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 1.6rem;
+  text-align: center;
+}
+
+.status-message-container {
+  margin-top: 1.4rem;
+  text-align: center;
+}
+
+.table-container {
+  width: 410px;
+  margin: 0 auto;
+  margin-bottom: 26rem;
 }

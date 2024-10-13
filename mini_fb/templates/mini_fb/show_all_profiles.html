@@ -5,10 +5,14 @@
 <div class="grid-container">
   {% for user in profiles %}
   <div class="profile-container">
-    <h2>{{user.first_name}} {{user.last_name}}</h2>
+    <a href="{% url 'show_profile' user.pk %}"
+      ><h2>{{user.first_name}} {{user.last_name}}</h2></a
+    >
     <h3>{{user.city}}</h3>
     <p>{{user.email}}</p>
-    <img class="profile-img" src="{{user.image_url}}" />
+    <a href="{% url 'show_profile' user.pk %}">
+      <img class="profile-img" src="{{user.image_url}}" />
+    </a>
   </div>
   {% endfor %}
 </div>
