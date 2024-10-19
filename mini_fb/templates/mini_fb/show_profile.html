@@ -23,7 +23,13 @@
       <strong>{{status.timestamp}}</strong>
       <p>{{status.message}}</p>
       {% for img in status.get_images %}
-      <img src="{{img.image_file.url}}" alt="{{img.image_file.url}}" />
+      <div class="status-img-container">
+        <img
+          class="status-img"
+          src="{{img.image_file.url}}"
+          alt="{{img.image_file.url}}"
+        />
+      </div>
       {% endfor %}
       <a href="{% url 'delete_status' status.pk %}">delete</a>
       <a href="{% url 'update_status' status.pk %}">update</a>

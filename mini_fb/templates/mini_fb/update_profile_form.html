@@ -18,4 +18,10 @@
     </div>
   </div>
 </form>
+
+<form method="GET" action="{% url 'show_profile' profile.pk %}">
+  {% csrf_token %}
+  <input type="submit" name="Cancel" value="Cancel" />
+</form>
+
 {% endblock %}

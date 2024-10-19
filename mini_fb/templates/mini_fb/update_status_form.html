@@ -16,4 +16,8 @@
     />
   </div>
 </form>
+<form method="GET" action="{% url 'show_profile' status.profile.pk %}">
+  {% csrf_token %}
+  <input type="submit" name="Cancel" value="Cancel" />
+</form>
 {% endblock %}

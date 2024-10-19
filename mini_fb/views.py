@@ -75,6 +75,7 @@ class UpdateProfileView(UpdateView):
   form_class = UpdateProfileForm
   template_name = "mini_fb/update_profile_form.html"
   model = Profile
+  context_object_name = "profile"
 
 class DeleteStatusMessageView(DeleteView):
   """A view to delete a status message and reflect it on to the database"""
@@ -94,7 +95,7 @@ class UpdateStatusMessageView(UpdateView):
   form_class = UpdateStatusMessageForm
   model = StatusMessage
   template_name = "mini_fb/update_status_form.html"
-  # context_object_name = "status"
+  context_object_name = "status"
 
   def get_success_url(self) -> str:
     '''Return the URL to redirect to after successfully updating status message.'''

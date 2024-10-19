@@ -112,3 +112,10 @@ h2 {
   margin: 0 auto;
   margin-bottom: 26rem;
 }
+
+.status-img-container {
+}
+
+.status-img {
+  width: 200px;
+}

@@ -26,6 +26,7 @@ class UpdateProfileForm(forms.ModelForm):
     """Associates this form with the Profile Model"""
     model = Profile
     fields = ['city', 'email', 'image_url',]
+    
 
 class UpdateStatusMessageForm(forms.ModelForm):
   """A form to update a status message to the database"""

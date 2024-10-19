@@ -4,10 +4,10 @@
 <p></p>
 <form method="POST">
   {% csrf_token %}
-  <input type="submit" name="yes" value="yes" />
+  <input type="submit" name="delete" value="delete" />
 </form>
 <form method="GET" action="{% url 'show_profile' status.profile.pk %}">
   {% csrf_token %}
-  <input type="submit" name="no" value="no" />
+  <input type="submit" name="cancel" value="cancel" />
 </form>
 {% endblock %}
