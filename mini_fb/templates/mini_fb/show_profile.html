@@ -15,12 +15,18 @@
 
   <h3>
     <a href="{% url 'create_status' profile.pk %}">Create a status message</a>
+    <a href="{% url 'update_profile' profile.pk %}">Update Profile</a>
   </h3>
   <div>
-    {% for m in profile.get_status_messages %}
+    {% for status in profile.get_status_messages %}
     <div class="status-message-container">
-      <strong>{{m.timestamp}}</strong>
-      <p>{{m.message}}</p>
+      <strong>{{status.timestamp}}</strong>
+      <p>{{status.message}}</p>
+      {% for img in status.get_images %}
+      <img src="{{img.image_file.url}}" alt="{{img.image_file.url}}" />
+      {% endfor %}
+      <a href="{% url 'delete_status' status.pk %}">delete</a>
+      <a href="{% url 'update_status' status.pk %}">update</a>
     </div>
     {% endfor %}
   </div>

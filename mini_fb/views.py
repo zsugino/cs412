@@ -4,9 +4,9 @@
 # interact with model and delegate work to template
 
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
-from .models import Profile
-from .forms import CreateProfileForm, CreateStatusMessageForm
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from .models import Profile, Image, StatusMessage
+from .forms import CreateProfileForm, CreateStatusMessageForm, UpdateProfileForm, UpdateStatusMessageForm
 from typing import Any, Dict
 from django.urls import reverse
 
@@ -49,11 +49,67 @@ class CreateStatusMessageView(CreateView):
     print(form.cleaned_data)
     profile = Profile.objects.get(pk=self.kwargs['pk'])
     form.instance.profile = profile
+
+    # save the status message to database
+    sm = form.save()
+
+    # read the file from the form:
+    files = self.request.FILES.getlist('files')
+
+    # create image object for each file
+    for file in files:
+      img = Image()
+      img.status_message = sm
+      img.image_file = file 
+      img.save()
+  
     return super().form_valid(form)
     
   def get_success_url(self) -> str:
     '''Return the URL to redirect to after successfully submitting form.'''
     return reverse('show_profile', kwargs={'pk': self.kwargs['pk']})
+
+
+class UpdateProfileView(UpdateView):
+  """A view to update a profile and save it to the database"""
+  form_class = UpdateProfileForm
+  template_name = "mini_fb/update_profile_form.html"
+  model = Profile
+
+class DeleteStatusMessageView(DeleteView):
+  """A view to delete a status message and reflect it on to the database"""
+  model = StatusMessage
+  template_name = "mini_fb/delete_status_form.html"
+  context_object_name = "status"
+
+  def get_success_url(self) -> str:
+    '''Return the URL to redirect to after successfully deleteing status message.'''
+    p_pk = self.object.profile.pk
+
+    # reverse to show the article page
+    return reverse('show_profile', kwargs={'pk': p_pk})
+
+class UpdateStatusMessageView(UpdateView):
+  """A view to update a status message and reflect it on to the database"""
+  form_class = UpdateStatusMessageForm
+  model = StatusMessage
+  template_name = "mini_fb/update_status_form.html"
+  # context_object_name = "status"
+
+  def get_success_url(self) -> str:
+    '''Return the URL to redirect to after successfully updating status message.'''
+    p_pk = self.object.profile.pk
+    # reverse to show the article page
+    return reverse('show_profile', kwargs={'pk': p_pk})
+
+
+
+
+
+
+
+
+
 
 
 

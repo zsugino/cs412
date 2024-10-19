@@ -1,6 +1,6 @@
 {% extends 'mini_fb/base.html' %} {% block content %}
 <h2>Add a message</h2>
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
   <!-- talk about CSRF -->
   {% csrf_token %}
   <!-- customized table version here -->
@@ -16,7 +16,13 @@
       <tr>
         <td></td>
         <td>
-          <input type="submit" name="Add Message!" value="Add Message!" />
+          <input type="file" name="files" multiple />
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input type="submit" name="Create Status!" value="Create !" />
         </td>
       </tr>
     </table>
