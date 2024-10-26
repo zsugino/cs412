@@ -119,3 +119,19 @@ h2 {
 .status-img {
   width: 200px;
 }
+
+.news-img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.friends-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: black;
+}
+
+.friends-suggestions-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}

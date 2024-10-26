@@ -1,0 +1,18 @@
+{% extends 'mini_fb/base.html' %} {% block content %}
+<h1>News Feed</h1>
+
+<a href="{% url 'show_profile' profile.pk %}">Back to profile page</a>
+
+{% for news in profile.get_news_feed %}
+<div>
+  <img
+    class="news-img"
+    src="{{news.profile.image_url}}"
+    alt="{{news.profile.image_url}}"
+  />
+  <div>{{news.profile.first_name}}</div>
+  <div>{{news}}</div>
+  <div>{{news.timestamp}}</div>
+</div>
+
+{% endfor %} {% endblock %}

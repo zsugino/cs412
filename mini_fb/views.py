@@ -3,8 +3,8 @@
 # Description: Contains the views classes and function that
 # interact with model and delegate work to template
 
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, View
 from .models import Profile, Image, StatusMessage
 from .forms import CreateProfileForm, CreateStatusMessageForm, UpdateProfileForm, UpdateStatusMessageForm
 from typing import Any, Dict
@@ -102,6 +102,31 @@ class UpdateStatusMessageView(UpdateView):
     p_pk = self.object.profile.pk
     # reverse to show the article page
     return reverse('show_profile', kwargs={'pk': p_pk})
+
+
+class CreateFriendView(View):
+  def dispatch(self, request, *args, **kwargs):
+    profile = Profile.objects.get(pk=kwargs['pk'])
+    other = Profile.objects.get(pk=kwargs['other_pk'])
+    profile.add_friend(other)
+    return redirect('show_profile', pk=profile.pk)
+
+
+class ShowFriendSuggestionsView(DetailView):
+  """Displays suggestion for a profile"""
+  model = Profile
+  template_name = "mini_fb/friend_suggestions.html"
+  context_object_name = "profile"
+
+
+class ShowNewsFeedView(DetailView):
+  """Displays newsfeed for a profile"""
+  model = Profile
+  template_name = "mini_fb/news_feed.html"
+  context_object_name = "profile"
+
+
+
 
 
 
