@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -8,6 +9,8 @@ class Article(models.Model):
   '''Encapsulate the idea of an Article by some author'''
 
   # data attributes of a Article
+  # Each article will be associated with a user
+  user = models.ForeignKey(User, on_delete=models.CASCADE) 
   title = models.TextField(blank=False)
   author = models.TextField(blank=False)
   text = models.TextField(blank=False)

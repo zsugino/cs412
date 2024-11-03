@@ -4,6 +4,8 @@
 
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
+
 
 class Profile(models.Model):
   """Encapsulate the attributes of 
@@ -11,6 +13,7 @@ class Profile(models.Model):
   """
 
   # data attributes of the profile model
+  user = models.ForeignKey(User, on_delete=models.CASCADE) 
   first_name = models.TextField(blank=False)
   last_name = models.TextField(blank=False)
   city = models.TextField(blank=False)

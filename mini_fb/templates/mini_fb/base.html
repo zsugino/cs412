@@ -14,11 +14,22 @@
               >All Profiles</a
             >
           </li>
+
+          {% if request.user.is_authenticated %}
           <li>
             <a class="nav-link" href="{% url 'create_profile' %}"
               >Create Profile</a
             >
           </li>
+          <!-- LOGOUT MUST BE POST SO WE USE FORM TO CALL THE URL -->
+          <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <input type="submit" value="logout" />
+          </form>
+          <!-- <li><a href="{% url 'logout' %}">Log out</a></li> -->
+          {% else %}
+          <li><a href="{% url 'login' %}">Log in</a></li>
+          {% endif %}
         </ul>
       </nav>
     </header>
