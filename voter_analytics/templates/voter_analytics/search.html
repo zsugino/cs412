@@ -1,0 +1,89 @@
+<h3>Filter Form</h3>
+<table>
+  <form action="{% url 'voters_list' %}">
+    <tr>
+      <th>Party Affiliation</th>
+      <td>
+        <select name="party_affiliation">
+          <option value="">{{ " - " }}</option>
+          <option value="D">D</option>
+          <option value="R">R</option>
+          <option value="CC">CC</option>
+          <option value="L">L</option>
+          <option value="T">T</option>
+          <option value="O">O</option>
+          <option value="G">G</option>
+          <option value="J">J</option>
+          <option value="Q">Q</option>
+          <option value="FF">FF</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <th>Minimum Date of Birth</th>
+      <td>
+        <select name="minimum">
+          <option value="">{{ " - " }}</option>
+          {% for year in years %}
+          <option value="{{year}}">{{ year }}</option>
+          {% endfor %}
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <th>Maximum Date of Birth</th>
+      <td>
+        <select name="maximum">
+          <option value="">{{ " - " }}</option>
+          {% for year in years %}
+          <option value="{{year}}">{{ year }}</option>
+          {% endfor %}
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <th>Voter Score</th>
+      <td>
+        <select name="v_score">
+          <option value="">{{ " - " }}</option>
+          {% for score in scores %}
+          <option value="{{score}}">{{ score }}</option>
+          {% endfor %}
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <th>v20state</th>
+      <td><input type="checkbox" name="v20state" /></td>
+    </tr>
+
+    <tr>
+      <th>v21town</th>
+      <td><input type="checkbox" name="v21town" /></td>
+    </tr>
+
+    <tr>
+      <th>v21primary</th>
+      <td><input type="checkbox" name="v21primary" /></td>
+    </tr>
+
+    <tr>
+      <th>v22general</th>
+      <td><input type="checkbox" name="v22general" /></td>
+    </tr>
+
+    <tr>
+      <th>v23town</th>
+      <td><input type="checkbox" name="v23town" /></td>
+    </tr>
+
+    <tr>
+      <td><input type="submit" /></td>
+      <td></td>
+    </tr>
+  </form>
+</table>
