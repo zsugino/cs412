@@ -1,0 +1,41 @@
+{% load static %}
+<html>
+  <head>
+    <title>NBA</title>
+    <!-- <link rel="stylesheet" href="{% static 'stylesheet.css' %}" /> -->
+  </head>
+  <body>
+    <header>
+      <h1>NBA</h1>
+      <nav>
+        <ul>
+          <li><a href="{% url 'players_list' %}">Players</a></li>
+          {% if request.user.is_authenticated %}
+          <li>
+            <a href="{% url 'public_dream_team_list' %}">Public Dream Team</a>
+          </li>
+          <li>
+            <a href="{% url 'dream_team_list' %}">My Dream Team</a>
+          </li>
+          <li>
+            <a href="{% url 'ranking_list' %}">My Rankings</a>
+          </li>
+          <!-- LOGOUT MUST BE POST SO WE USE FORM TO CALL THE URL -->
+          <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <input type="submit" value="logout" />
+          </form>
+          {% else %}
+          <li><a href="{% url 'login' %}">Log in</a></li>
+          {% endif %}
+        </ul>
+        <p>
+          <!-- prettier-ignore -->
+          {% if request.user.is_authenticated %} Logged in user: {{request.user}}. {% else %} Not logged in. {% endif %}
+        </p>
+      </nav>
+    </header>
+
+    {% block content %} {% endblock %}
+  </body>
+</html>

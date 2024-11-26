@@ -1,0 +1,21 @@
+{% extends 'nba/base.html' %} {% block content %}
+<h2>My Rankings</h2>
+
+{% if rankings %}
+<table>
+  <tr>
+    <th>Rank</th>
+    <th>Player</th>
+    <th>Actions</th>
+  </tr>
+  {% for r in rankings %}
+  <tr>
+    <td>{{r.position}}</td>
+    <td>{{r.rank}}</td>
+    <td>{{r.player}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>No rankings created yet</p>
+{% endif %} {% endblock %}

@@ -12,7 +12,6 @@ class ResultsListView(ListView):
     context_object_name = 'results'
     paginate_by = 50
     def get_queryset(self):
-        
         # start with entire queryset
         qs = super().get_queryset().order_by('place_overall')
         # filter results by these field(s):

@@ -1,0 +1,16 @@
+{% extends 'nba/base.html' %} {% block content %}
+<h2>{{dream_team.name}}</h2>
+<p>Point Guard: {{dream_team.point_guard}}</p>
+<p>Shooting Guard: {{dream_team.shooting_guard}}</p>
+<p>Small Forward: {{dream_team.small_forward}}</p>
+<p>Power Forward: {{dream_team.power_forward}}</p>
+<p>Center: {{dream_team.center}}</p>
+
+{% if request.user == dream_team.user %}
+<a href="{% url 'update_dream_team' dream_team.pk %}">Edit Dream Team</a>
+{% endif %}
+
+<h3>Reviews From Other Users</h3>
+{% for r in reviews %}
+<p>{{r.user.username}}: {{r.content}}</p>
+{% endfor %} {% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'nba/base.html' %} {% block content %}
+<div class="container">
+  <div>{% include "nba/search.html" %}</div>
+  <h1>Showing all Players</h1>
+  <div class="row">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Birth Date</th>
+        <th>Country</th>
+        <th>School</th>
+        <th>Position</th>
+        <th>Height</th>
+        <th>Weight</th>
+        <th>Draft Year</th>
+      </tr>
+
+      {% for player in players %}
+      <tr>
+        <td>
+          <a href="{% url 'player_detail' player.pk %}"
+            >{{player.first_name}} {{player.last_name}}</a
+          >
+        </td>
+        <td>{{player.birthday}}</td>
+        <td>{{player.country}}</td>
+        <td>{{player.school}}</td>
+        <td>{{player.position}}</td>
+        <td>{{player.height}}</td>
+        <td>{{player.weight}}</td>
+        <td>{{player.draft_year}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock %}

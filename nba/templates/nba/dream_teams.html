@@ -1,0 +1,8 @@
+{% extends 'nba/base.html' %} {% block content %}
+<h2>All My Dream Team</h2>
+<a href="{% url 'create_dream_team' %}">Create New Dream Team</a>
+{% for team in dream_teams %}
+<a href="{% url 'dream_team_detail' team.pk %}">{{team.name}}</a>
+{% endfor %}
+<div></div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'nba/base.html' %} {% block content %}
+<div class="row">
+  <table>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Birth Date</th>
+      <th>Country</th>
+      <th>School</th>
+      <th>Position</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Draft Year</th>
+    </tr>
+
+    <tr>
+      <td><img src="../../../static/2544.png" /></td>
+      <td>{{player.first_name}} {{player.last_name}}</td>
+      <td>{{player.birthday}}</td>
+      <td>{{player.country}}</td>
+      <td>{{player.school}}</td>
+      <td>{{player.position}}</td>
+      <td>{{player.height}}</td>
+      <td>{{player.weight}}</td>
+      <td>{{player.draft_year}}</td>
+    </tr>
+  </table>
+</div>
+
+{% endblock %}

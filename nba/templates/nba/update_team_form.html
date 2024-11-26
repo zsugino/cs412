@@ -1,0 +1,12 @@
+{% extends 'nba/base.html' %} {% block content %}
+<h2>Update Your DreamTeam</h2>
+<form method="POST">
+  <!-- talk about CSRF -->
+  {% csrf_token %}
+  <!-- customized table version here -->
+  {% csrf_token %} {{form.as_p}}
+  <button type="submit">Update Dream Team</button>
+</form>
+
+<a href="{% url 'dream_team_detail' dream_team.pk %}">Cancel</a>
+{% endblock %}
