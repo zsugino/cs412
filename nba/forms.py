@@ -1,5 +1,5 @@
 from django import forms
-from .models import DreamTeam, Review
+from .models import DreamTeam, Review, Ranking, PlayerReview
 
 class CreateDreamTeamForm(forms.ModelForm):
   '''A form to add a new dreamteam to the database'''
@@ -25,3 +25,31 @@ class CreateReviewForm(forms.ModelForm):
   class Meta:
     model = Review
     fields = ['content']
+
+class CreateRankingForm(forms.ModelForm):
+  '''A form to create a new ranking for a user'''
+
+  class Meta:
+    model = Ranking
+    fields = ['player', 'position', 'rank']
+
+class CreatePlayerReviewForm(forms.ModelForm):
+  '''A form to create a review for a individual player by a user'''
+
+  class Meta:
+    model = PlayerReview
+    fields = ['content', 'rating']
+    
+
+
+
+
+
+
+
+
+
+
+
+
+

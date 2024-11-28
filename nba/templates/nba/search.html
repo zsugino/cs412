@@ -1,21 +1,23 @@
-<!-- <h3>Search Form</h3>
-<table>
-  <form action="{% url 'results_list' %}">
-    <tr>
-      <th>First Name:</th>
-      <td><input type="text" name="first_name" /></td>
-    </tr>
+<form class="search-container" action="{% url 'players_list' %}">
+  <div>
+    <label>First Name:</label>
+    <input type="text" name="first_name" />
+  </div>
 
-    <tr>
-      <td><input type="submit" /></td>
-      <td></td>
-    </tr>
-  </form>
-</table> -->
+  <div>
+    <label>Draft Year:</label>
+    <input type="number" name="draft_year" />
+  </div>
 
-<h3>Search Form</h3>
-<form action="{% url 'players_list' %}">
-  <div>Draft Year:</div>
-  <input type="number" name="draft_year" />
+  <div>
+    <label>Position</label>
+    <input type="text" name="position" />
+  </div>
+
+  <div>
+    <label>Height</label>
+    <input type="text" name="height" />
+  </div>
+
   <input type="submit" />
 </form>

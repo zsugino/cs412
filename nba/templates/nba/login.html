@@ -1,6 +1,6 @@
 {% extends 'nba/base.html' %} {% block content %}
-<h1>Login</h1>
-<form method="post" action="{% url 'login' %}">
+<h1 class="form-title">Login</h1>
+<form class="form-container" method="post" action="{% url 'login' %}">
   {% csrf_token %} {{ form }}
   <input type="hidden" name="next" value="{% url 'players_list' %}" />
   <input type="submit" value="Login" />

@@ -1,7 +1,14 @@
 {% extends 'nba/base.html' %} {% block content %}
-<h2>Other Users Dream Team</h2>
-{% for team in dream_teams %}
-<h3>{{team.name}}</h3>
-<p>Created by: {{team.user.username}}</p>
-<a href="{% url 'dream_team_detail' team.pk %}">View Dream Team</a>
-{% endfor %} {% endblock %}
+<h2 class="public-title">Public Dream Team</h2>
+
+<div class="public-container">
+  {% for team in dream_teams %}
+  <div class="team-container">
+    <h3>{{team.name}}</h3>
+    <p>Created by: {{team.user.username}}</p>
+    <a href="{% url 'dream_team_detail' team.pk %}">View Dream Team</a>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

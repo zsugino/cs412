@@ -1,0 +1,11 @@
+{% extends 'nba/base.html' %} {% block content %}
+<h2 class="form-title">Are you sure you want to delete this dream team?</h2>
+<form class="form-container" method="POST">
+  {% csrf_token %} {{dream_team}}
+  <input type="submit" name="delete" value="delete" />
+</form>
+<div class="create-link">
+  <a href="{% url 'dream_team_detail' dream_team.pk %}">Cancel</a>
+</div>
+
+{% endblock %}

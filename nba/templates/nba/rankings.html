@@ -1,8 +1,8 @@
 {% extends 'nba/base.html' %} {% block content %}
-<h2>My Rankings</h2>
+<h2 class="ranking-title">My Rankings</h2>
 
 {% if rankings %}
-<table>
+<table class="ranking-table">
   <tr>
     <th>Rank</th>
     <th>Player</th>
@@ -16,6 +16,15 @@
   </tr>
   {% endfor %}
 </table>
+<div class="create-link">
+  <a href="{% url 'create_ranking' %}">Add New Ranking</a>
+</div>
 {% else %}
-<p>No rankings created yet</p>
+<div class="create-link">
+  <p>No rankings created yet</p>
+</div>
+
+<div class="create-link">
+  <a href="{% url 'create_ranking' %}">Add New Ranking</a>
+</div>
 {% endif %} {% endblock %}

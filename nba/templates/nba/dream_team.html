@@ -1,16 +1,55 @@
 {% extends 'nba/base.html' %} {% block content %}
-<h2>{{dream_team.name}}</h2>
-<p>Point Guard: {{dream_team.point_guard}}</p>
-<p>Shooting Guard: {{dream_team.shooting_guard}}</p>
-<p>Small Forward: {{dream_team.small_forward}}</p>
-<p>Power Forward: {{dream_team.power_forward}}</p>
-<p>Center: {{dream_team.center}}</p>
+<h2 class="team-title">{{dream_team.name}}</h2>
+<div class="dream-team-container">
+  <p class="position">Point Guard</p>
+  <p class="position">Shooting Guard</p>
+  <p class="position">Small Forward</p>
+  <p class="position">Power Forward</p>
+  <p class="position">Center</p>
+  <img
+    class="dream-img"
+    src="../../../static/{{dream_team.point_guard.player_id}}.png"
+  />
+  <img
+    class="dream-img"
+    src="../../../static/{{dream_team.shooting_guard.player_id}}.png"
+  />
+  <img
+    class="dream-img"
+    src="../../../static/{{dream_team.small_forward.player_id}}.png"
+  />
+  <img
+    class="dream-img"
+    src="../../../static/{{dream_team.power_forward.player_id}}.png"
+  />
+  <img
+    class="dream-img"
+    src="../../../static/{{dream_team.center.player_id}}.png"
+  />
+  <p>{{dream_team.point_guard}}</p>
+  <p>{{dream_team.shooting_guard}}</p>
+  <p>{{dream_team.small_forward}}</p>
+  <p>{{dream_team.power_forward}}</p>
+  <p>{{dream_team.center}}</p>
+</div>
 
 {% if request.user == dream_team.user %}
-<a href="{% url 'update_dream_team' dream_team.pk %}">Edit Dream Team</a>
+<div class="create-link">
+  <a href="{% url 'update_dream_team' dream_team.pk %}">Edit Dream Team</a>
+</div>
+<div class="create-link">
+  <a href="{% url 'delete_dream_team' dream_team.pk %}">Delete Dream Team</a>
+</div>
 {% endif %}
 
-<h3>Reviews From Other Users</h3>
+<h3 class="review-other-title">Reviews</h3>
 {% for r in reviews %}
-<p>{{r.user.username}}: {{r.content}}</p>
-{% endfor %} {% endblock %}
+<div class="review-container">
+  <p>{{r.content}}</p>
+  <p>Review by: {{r.user.username}}</p>
+</div>
+{% endfor %} {% if request.user != dream_team.user %}
+<div class="create-link">
+  <a href="{% url 'create_review' dream_team.pk %}">Write Review</a>
+</div>
+{% endif %} {% endblock %}

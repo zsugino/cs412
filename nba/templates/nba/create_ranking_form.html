@@ -1,0 +1,10 @@
+{% extends 'nba/base.html' %} {% block content %}
+<h2 class="form-title">Create Ranking</h2>
+<form class="form-container" method="POST">
+  <!-- talk about CSRF -->
+  {% csrf_token %}
+  <!-- customized table version here -->
+  {% csrf_token %} {{form.as_p}}
+  <button type="submit">Save Ranking</button>
+</form>
+{% endblock %}

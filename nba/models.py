@@ -63,6 +63,18 @@ class Review(models.Model):
     '''Returns a string representation of this model instance'''
     return f'{self.user.username} Reviewing: {self.dream_team}'
 
+class PlayerReview(models.Model):
+  '''Store data of review for individual NBA players'''
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  player = models.ForeignKey(Player, on_delete=models.CASCADE)
+  content = models.TextField()
+  rating = models.IntegerField()
+  created_date = models.DateTimeField(auto_now=True)
+
+  def __str__(self):
+    '''Returns a string representation of this model instance'''
+    return f'{self.user.username} Reviewing: {self.player}'
+
 def load_data():
   '''Function to load data records from CSV file into Django model instances'''
   # delete existing records to prevent duplicates:

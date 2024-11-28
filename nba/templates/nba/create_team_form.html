@@ -1,6 +1,6 @@
 {% extends 'nba/base.html' %} {% block content %}
-<h2>Create Your DreamTeam</h2>
-<form method="POST">
+<h2 class="form-title">Create Your DreamTeam</h2>
+<form class="form-container" method="POST">
   <!-- talk about CSRF -->
   {% csrf_token %}
   <!-- customized table version here -->
