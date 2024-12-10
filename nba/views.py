@@ -1,3 +1,7 @@
+# File: views.py
+# Author: Zai Sugino (xysugino@bu.edu), 12/10/2024
+# Description: Various Class View to handle view functions
+
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from . models import Player, DreamTeam, Ranking, Review, PlayerReview
@@ -54,6 +58,7 @@ class PlayerDetailView(DetailView):
   context_object_name = 'player'
 
   def get_context_data(self, **kwargs):
+    '''Override context to add more data to context object'''
     context = super().get_context_data(**kwargs)
     context['reviews'] = PlayerReview.objects.filter(player=self.object)
     return context
@@ -77,6 +82,7 @@ class DreamTeamDetailView(DetailView):
   context_object_name = 'dream_team'
 
   def get_context_data(self, **kwargs):
+    '''Override context to add more data to context object'''
     context = super().get_context_data(**kwargs)
     context['reviews'] = Review.objects.filter(dream_team=self.object)
     return context

@@ -1,3 +1,7 @@
+# File: urls.py
+# Author: Zai Sugino (xysugino@bu.edu), 12/10/2024
+# Description: Various url routes to handle routing path
+
 from django.urls import path
 from . import views 
 from django.contrib.auth import views as auth_views

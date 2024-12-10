@@ -1,3 +1,7 @@
+# File: forms.py
+# Author: Zai Sugino (xysugino@bu.edu), 12/10/2024
+# Description: Various Forms to handle form submission
+
 from django import forms
 from .models import DreamTeam, Review, Ranking, PlayerReview
 

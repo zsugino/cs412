@@ -1,3 +1,7 @@
+# File: admin.py
+# Author: Zai Sugino (xysugino@bu.edu), 12/10/2024
+# Description: Admin to register model to admin
+
 from django.contrib import admin
 
 # Register your models here.

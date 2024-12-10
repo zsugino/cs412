@@ -1,0 +1,4 @@
+You can create new user through registering but if you want to test a already created user her is the username and password
+
+Username: nbatestuser
+Password: testfortta

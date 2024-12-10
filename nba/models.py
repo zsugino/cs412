@@ -1,3 +1,7 @@
+# File: models.py
+# Author: Zai Sugino (xysugino@bu.edu), 12/10/2024
+# Description: Various Models for the NBA app
+
 from django.db import models
 from django.contrib.auth.models import User
 
